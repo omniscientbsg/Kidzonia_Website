@@ -85,6 +85,52 @@
     });
   });
 
+  /* ---------- hero slider ----------
+     Photos crossfade behind the headline. A slide whose image is missing is
+     dropped, so the hero still works with a single photo. */
+  [].slice.call(document.querySelectorAll('[data-slider]')).forEach(function(box){
+    var imgs=[].slice.call(box.querySelectorAll('img')), dots=null, i=0, timer=null;
+    var still=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    function show(n){
+      imgs[i].classList.remove('is-on');
+      i=(n+imgs.length)%imgs.length;
+      imgs[i].classList.add('is-on');
+      if(dots) [].slice.call(dots.children).forEach(function(d,k){d.setAttribute('aria-current',String(k===i))});
+    }
+    function play(){ if(!still&&imgs.length>1){clearInterval(timer);timer=setInterval(function(){show(i+1)},6000);} }
+    function stop(){ clearInterval(timer); }
+    function build(){
+      if(dots){dots.remove();dots=null;}
+      stop();
+      if(imgs.length<2) return;
+      dots=document.createElement('div'); dots.className='hero-dots';
+      imgs.forEach(function(img,k){
+        var b=document.createElement('button'); b.type='button';
+        b.setAttribute('aria-label','Show photo '+(k+1)+' of '+imgs.length);
+        b.addEventListener('click',function(){show(k);play();});
+        dots.appendChild(b);
+      });
+      box.parentNode.appendChild(dots);
+      show(i); play();
+    }
+    function drop(img){
+      var k=imgs.indexOf(img); if(k<0) return;
+      var wasOn=img.classList.contains('is-on');
+      img.remove(); imgs.splice(k,1);
+      if(k<i||(wasOn&&i>=imgs.length)) i=Math.max(0,i-1);
+      if(wasOn&&imgs[i]) imgs[i].classList.add('is-on');
+      build();
+    }
+    imgs.slice().forEach(function(img){
+      if(img.complete&&img.naturalWidth===0) drop(img);
+      else img.addEventListener('error',function(){drop(img)});
+    });
+    var hero=box.parentNode;
+    hero.addEventListener('mouseenter',stop); hero.addEventListener('mouseleave',play);
+    hero.addEventListener('focusin',stop); hero.addEventListener('focusout',play);
+    build();
+  });
+
   /* ---------- centre finder ---------- */
   var q=document.getElementById('centre-q');
   if(q){
