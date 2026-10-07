@@ -3,8 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Contact Us · Kidzonia</title>
-<meta name="description" content="Contact Kidzonia head office in Vashi, Navi Mumbai. Phone, WhatsApp, email and hours.">
+<title>Our Philosophy · Kidzonia</title>
+<meta name="description" content="Respect, diversity and responsibility come first at Kidzonia. Here’s why we start with values at three, and how they turn into a real day.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
@@ -34,9 +34,9 @@
         </div>
       </div>
       <div class="nav-item">
-        <button class="nav-top" type="button" aria-expanded="false" aria-controls="menu-1">About Us</button>
+        <button class="nav-top" type="button" aria-expanded="false" aria-controls="menu-1" aria-current="true">About Us</button>
         <div class="menu" id="menu-1">
-          <a href="about.html">About Us</a><a href="our-philosophy.html">Our Philosophy</a><a href="our-team.html">Our Team</a><a href="learning-spaces.html">Our Learning Spaces</a><a href="awards.html">Awards & Recognitions</a><a href="parent-speak.html">Parent Speak</a>
+          <a href="about.html">About Us</a><a href="our-philosophy.html" aria-current="page">Our Philosophy</a><a href="our-team.html">Our Team</a><a href="learning-spaces.html">Our Learning Spaces</a><a href="awards.html">Awards & Recognitions</a><a href="parent-speak.html">Parent Speak</a>
         </div>
       </div>
       <div class="nav-item">
@@ -64,9 +64,9 @@
         </div>
       </div>
       <div class="nav-item">
-        <button class="nav-top" type="button" aria-expanded="false" aria-controls="menu-6" aria-current="true">Contact Us</button>
+        <button class="nav-top" type="button" aria-expanded="false" aria-controls="menu-6">Contact Us</button>
         <div class="menu" id="menu-6">
-          <a href="contact.html" aria-current="page">Get in Touch</a><a href="centres.html">Our Centres</a><a href="#" class="soon" aria-disabled="true">Career</a><a href="#" class="soon" aria-disabled="true">Higher School</a>
+          <a href="contact.html">Get in Touch</a><a href="centres.html">Our Centres</a><a href="#" class="soon" aria-disabled="true">Career</a><a href="#" class="soon" aria-disabled="true">Higher School</a>
         </div>
       </div>
       <a class="nav-top nav-solo soon" href="#" aria-disabled="true">Franchise</a>
@@ -80,49 +80,71 @@
 <div class="scrim"></div>
 <main id="main">
 <section class="hero">
-  <img class="hero-img" src="assets/img/contact-hero.jpg" alt="The bright Kidzonia reception desk with a smiling receptionist on the phone" fetchpriority="high">
+  <img class="hero-img" src="assets/img/prog-nursery.jpg" alt="A three-year-old raising her hand with a question during story time" fetchpriority="high" style="object-position:center 35%">
   <div class="hero-in wrap">
     <div class="hero-copy">
-      <span class="eyebrow">Contact us</span>
-      <h1 class="display">Get in touch.</h1>
-      <p class="lede">Tell us which of these you are and we’ll get you to the right person quickly.</p>
-      <div class="btn-row"><a class="btn btn-pink btn-lg" href="tel:+918400158500">Call +91-8400 15 8500</a><a class="btn btn-white btn-lg" href="mailto:info@kidzonia.in">Email info@kidzonia.in</a></div>
+      <span class="eyebrow">Our Philosophy</span>
+      <h1 class="display">Values first. Everything else is built on top.</h1>
+      <p class="lede">Respect for yourself and for other people. An appreciation of difference. A sense that what you do affects somebody else. We think a three-year-old can learn all of that, and that it matters more than writing their name early.</p>
+      <div class="btn-row"><a class="btn btn-pink btn-lg" href="#beliefs">What we believe</a><a class="btn btn-white btn-lg" href="home.html#discover">How DISCOVER works</a></div>
     </div>
-    
+    <div class="hero-stats">
+      <a class="stat bg-yellow" href="#values" style="text-decoration:none"><b>3</b>values under everything we do</a>
+      <a class="stat bg-teal" href="home.html#discover" style="text-decoration:none"><b>6</b>great teachers, one curriculum</a>
+    </div>
   </div>
 </section>
-<section class="section wrap" aria-labelledby="start-h">
-  <div class="head-row"><h2 class="h2" id="start-h">Where to start.</h2></div>
-  <div class="cards" style="--cols:4">
-    <a class="card bg-yellow" href="admissions.html" style="text-decoration:none;min-height:240px"><span class="eyebrow">Parents</span><h3 class="h3">I’m a parent</h3><p>Admissions, fees, visits.</p><span class="link-arrow" style="margin-top:auto">Go to admissions →</span></a>
-    <a class="card bg-ink" href="mailto:info@kidzonia.in?subject=Franchise%20enquiry" style="text-decoration:none;min-height:240px"><span class="eyebrow" style="color:var(--yellow)">Franchise</span><h3 class="h3">I want to open a Kidzonia</h3><p style="color:rgba(255,255,255,.8)">Franchise enquiries.</p><span class="link-arrow" style="margin-top:auto">Email us →</span></a>
-    <a class="card bg-teal" href="mailto:info@kidzonia.in?subject=Corporate%20daycare" style="text-decoration:none;min-height:240px"><span class="eyebrow">Employers</span><h3 class="h3">I’m an employer</h3><p>Corporate daycare.</p><span class="link-arrow" style="margin-top:auto">Email us →</span></a>
-    <a class="card bg-purple" href="mailto:info@kidzonia.in?subject=Careers" style="text-decoration:none;min-height:240px"><span class="eyebrow">Careers</span><h3 class="h3">I’d like to work here</h3><p>Careers.</p><span class="link-arrow" style="margin-top:auto">Email us →</span></a>
-  </div>
-</section>
-<section class="section wrap" style="padding-top:0" aria-labelledby="office-h">
+<div class="marquee" aria-hidden="true"><div class="marquee-track"><span>Respect for oneself and others.</span><span>✦</span><span>An appreciation of diversity.</span><span>✦</span><span>A sense of responsibility.</span><span>✦</span><span>It takes a village to raise a child.</span><span>✦</span><span>Respect for oneself and others.</span><span>✦</span><span>An appreciation of diversity.</span><span>✦</span><span>A sense of responsibility.</span><span>✦</span><span>It takes a village to raise a child.</span><span>✦</span></div></div>
+<section class="section wrap">
   <div class="split">
-    <div class="stack">
-      <h2 class="h2" id="office-h">Head office.</h2>
-      <dl class="ledger">
-        <div><dt>Address</dt><dd>The Corporate Park, Office 1202, Plot 14/15, Sector 18, next to Warna Dairy, Vashi, Navi Mumbai, Maharashtra 400703</dd></div>
-        <div><dt>Phone</dt><dd><a href="tel:+918400158500">+91-8400 15 8500</a><br>WhatsApp available on the same number</dd></div>
-        <div><dt>Email</dt><dd><a href="mailto:info@kidzonia.in">info@kidzonia.in</a></dd></div>
-        <div><dt>Hours</dt><dd>Mon–Fri 9:00am–5:00pm · Sat 9:00am–4:00pm</dd></div>
-      </dl>
-      <a class="btn btn-ink" style="align-self:flex-start" href="https://www.google.com/maps/search/?api=1&amp;query=The+Corporate+Park+Sector+18+Vashi+Navi+Mumbai+400703" target="_blank" rel="noopener">Get directions</a>
+    <h2 class="h2">Why start with values, at three?</h2>
+    <div class="prose">
+      <p class="pullquote">Because it’s the age they’re learning them anyway.</p>
+      <p>Children are working out how people treat each other long before they can read. They notice who gets a turn, who gets listened to and who gets laughed at. The only real question is whether anyone is teaching that on purpose.</p>
+      <p>The research says what grandparents have always known: early exposure to difference, and the freedom to explore, lays the groundwork for doing well later. So our rooms are built for children to enjoy themselves while they practise social skills, express themselves, question ideas and build their motor skills. Our enrichment programmes put exposure, investigation and discovery ahead of memorising.</p>
     </div>
-    <div class="photo warm has-img" style="min-height:420px"><iframe class="map" title="Map of the Kidzonia head office in Vashi, Navi Mumbai" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3412.4580351048094!2d73.0069609!3d19.068617799999995!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3be7c1eb76032e41%3A0xd1f18f5413ed1de!2sKidzonia%20International%20Preschool%20-%20HO!5e1!3m2!1sen!2sin!4v1790983458181!5m2!1sen!2sin" loading="lazy" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe></div>
   </div>
 </section>
-<section class="band bg-yellow">
-  <div class="wrap split">
-    <h2 class="h2">About a specific centre?</h2>
-    <div class="stack">
-      <p style="font:600 24px/1.35 var(--display)">For anything about a specific centre, call that centre directly — they’ll always know more than head office.</p>
-      <a class="btn btn-ink" style="align-self:flex-start" href="centres.html">Find your centre</a>
+<section class="band bg-purple" id="values" style="scroll-margin-top:90px">
+  <div class="wrap">
+    <div class="head-row">
+      <h2 class="h2" style="font-size:clamp(40px,5.2vw,72px);max-width:640px">Three values.<br>Taught on purpose.</h2>
+      <p class="sub">They’re the cornerstones of how we teach, and we’re convinced children of every age can make them their own.</p>
+    </div>
+    <div class="numcols" style="--cols:3">
+      <div><span class="n">01</span><span class="t">Respect</span><p>For themselves and for other people. Waiting for a turn, listening to a friend, saying sorry and meaning it, and expecting the same back.</p></div>
+      <div><span class="n">02</span><span class="t">Diversity</span><p>Different languages at home, different festivals, different ways of being clever. Difference is interesting, not strange, and it’s easiest to learn that before anyone tells you otherwise.</p></div>
+      <div><span class="n">03</span><span class="t">Responsibility</span><p>Personal first: my shoes, my bag, my mess. Then a little wider: our room, our garden, our friends. Eventually, the world they’ll grow up into.</p></div>
     </div>
   </div>
+</section>
+<section class="section wrap" id="beliefs" style="scroll-margin-top:90px">
+  <div class="head-row">
+    <h2 class="h2" style="max-width:760px">Three beliefs that shape the curriculum.</h2>
+    <p class="muted">Values decide how children treat each other. These decide what we teach them, and how.</p>
+  </div>
+  <div class="cards">
+    <article class="card bg-ink"><span class="eyebrow" style="color:var(--yellow)">01 · Teaching for tomorrow</span><h3 class="h3">Teach for their future, not for our past.</h3><p style="color:rgba(255,255,255,.8)">The world these children will work in doesn’t exist yet, so our approach keeps changing with it. Children today arrive more switched-on than any generation before them. We meet that with a progressive curriculum where creativity is the foundation and technology is a tool used on purpose, never a babysitter.</p></article>
+    <article class="card bg-yellow"><span class="eyebrow">02 · Individual potential</span><h3 class="h3">Every child has something only they can do.</h3><p style="color:var(--text)">Every child has particular strengths, and the potential to matter to the people around them. Our job is to find those strengths and build on them. So the curriculum bends to each child’s learning style, pace and way of expressing themselves, during exactly the years when that matters most.</p></article>
+    <article class="card card-outline"><span class="eyebrow" style="color:var(--pink)">03 · A nurturing environment</span><h3 class="h3">It takes a village. We’d like to be part of yours.</h3><p style="color:var(--text)">Children grow up inside a community: parents, grandparents, teachers, friends, the person at the gate. We build ours deliberately and fit it around what each child needs, so children practise the collaboration and adaptability they’ll need to join a much bigger community later.</p></article>
+  </div>
+</section>
+<section class="section wrap" style="padding-top:0">
+  <div class="split">
+    <div class="photo has-img" style="min-height:420px"><img src="assets/img/prog-junior.jpg" alt="Two four-year-olds counting beads on an abacus" loading="lazy"></div>
+    <div class="prose">
+      <h2 class="h2" style="font-size:clamp(32px,3.6vw,50px);color:var(--ink)">A philosophy is only worth what happens at 9:40 on a Wednesday.</h2>
+      <p>Values and beliefs are the easy part to write down. DISCOVER, our curriculum, is how we make them practical: six great educational thinkers — Montessori, Gardner, Froebel, Reggio Emilia, Piaget and Bloom — turned into decisions about what each room does, hour by hour.</p>
+      <p>So when a teacher waits before settling an argument about the slide, or lets a four-year-old take ten minutes over her own snack box, that isn’t a lack of structure. It’s the philosophy, working.</p>
+      <div class="btn-row"><a class="btn btn-ink" href="home.html#discover">How DISCOVER works</a><a class="btn btn-outline" href="a-day-at-kidzonia.html">See a real day</a></div>
+    </div>
+  </div>
+</section>
+<section class="closing wrap" style="padding-top:0">
+  <h2 class="display">Watch it happen rather than reading about it.</h2>
+  <p class="lede">Values are hard to put in a brochure and easy to spot in a room. Visit during a session and watch how the children treat each other. That will tell you more than this page can.</p>
+  <a class="btn btn-pink btn-xl" style="margin-top:32px" href="admissions.html#book-a-visit">Book a visit</a>
+  <p style="font-weight:600;font-size:15px;color:var(--muted);margin-top:20px">Or call us on <a href="tel:+918400158500" style="color:inherit">+91-8400 15 8500</a></p>
 </section>
 </main>
 <footer class="footer">

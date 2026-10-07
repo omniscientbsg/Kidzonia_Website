@@ -1,8 +1,9 @@
 # local backup of the pre-overhaul prototype, not part of the site
 kidzonia-wormhole.backup.html
 
-# full-quality master of the intro video; the site serves the compressed Website_01.mp4
+# full-quality masters of the intro video; the site serves the compressed Website_02.mp4
 Website_01.original.mp4
+Website_02.original.mp4
 
 # full-size generated photos; the site serves the resized copies in assets/img
 assets/img/originals/
