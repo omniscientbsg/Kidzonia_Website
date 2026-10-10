@@ -4,13 +4,6 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Kidzonia International Pre-School</title>
-<script>
-/* The intro plays once per browser. After that this page steps aside for the
-   home page. Add ?intro to the URL to watch it again. */
-try{
-  if(localStorage.getItem('kz-intro-seen')&&!/[?&]intro(=|&|$)/.test(location.search)) location.replace('home.html');
-}catch(e){}
-</script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Outfit:wght@500;600;700;800&family=Nunito+Sans:opsz,wght@6..12,400;6..12,600;6..12,700&display=swap">
@@ -88,6 +81,17 @@ img,svg{display:block;max-width:100%}
   padding:.6em 1.1em; cursor:pointer;
 }
 #sound.on{display:inline-flex}
+/* temporary: compare the two intro cuts */
+#vpick{
+  position:fixed; right:clamp(12px,3vw,28px); top:clamp(12px,3vw,28px); z-index:4;
+  display:flex; gap:2px; padding:3px; border-radius:999px;
+  background:rgba(20,14,26,.6); backdrop-filter:blur(6px); border:1px solid rgba(255,255,255,.3);
+}
+#vpick button{
+  font-family:var(--display); font-weight:600; font-size:.85rem; color:#fff;
+  background:none; border:0; border-radius:999px; padding:.5em 1em; cursor:pointer;
+}
+#vpick button[aria-pressed="true"]{background:#fff; color:#241F33}
 #sound:hover{background:rgba(20,14,26,.8)}
 #scrim{
   position:fixed; inset:0; pointer-events:none; opacity:0;
@@ -422,6 +426,7 @@ footer .redig:hover{color:#fff}
   <div id="tint" aria-hidden="true"></div>
   <div id="spot" aria-hidden="true"></div>
   <video id="intro" src="Website_02.mp4" playsinline preload="auto" aria-hidden="true"></video>
+  <div id="vpick" role="group" aria-label="Intro video"><button type="button" data-v="Website_02.mp4" aria-pressed="true">New video</button><button type="button" data-v="Website_01.mp4" aria-pressed="false">Old video</button></div>
   <button id="sound" type="button">&#128263; Tap for sound</button>
   <div id="scrim" aria-hidden="true"></div>
   <!-- brand images live here once; the site header, helper and tunnel reuse the bytes -->
@@ -626,12 +631,34 @@ intro.addEventListener('ended',showQuestion);
 intro.addEventListener('error',showQuestion);
 /* try with sound first; browsers usually refuse that before the visitor has interacted,
    so fall back to muted playback and offer a one-tap unmute */
-intro.play().catch(()=>{
-  intro.muted=true;
-  sound.classList.add('on');
-  /* even muted autoplay can be refused (data saver, low-power mode): don't strand the visitor */
-  return intro.play().catch(showQuestion);
-});
+function playIntro(){
+  intro.play().catch(()=>{
+    intro.muted=true;
+    sound.classList.add('on');
+    /* even muted autoplay can be refused (data saver, low-power mode): don't strand the visitor */
+    return intro.play().catch(showQuestion);
+  });
+}
+/* temporary old/new switch; ?video=old or ?video=new also works, and the last pick is remembered */
+const vpick=[...document.querySelectorAll('#vpick button')];
+function pickVideo(src){
+  vpick.forEach(b=>b.setAttribute('aria-pressed',String(b.dataset.v===src)));
+  if(intro.getAttribute('src')!==src) intro.src=src;
+  try{ localStorage.setItem('kz-intro-video',src); }catch(e){}
+}
+{
+  const q=(location.search.match(/[?&]video=(old|new)/)||[])[1];
+  let saved=null; try{ saved=localStorage.getItem('kz-intro-video'); }catch(e){}
+  const start=q?(q==='old'?'Website_01.mp4':'Website_02.mp4'):saved;
+  if(vpick.some(b=>b.dataset.v===start)) pickVideo(start);
+}
+vpick.forEach(b=>b.addEventListener('click',()=>{
+  pickVideo(b.dataset.v);
+  intro.currentTime=0; intro.muted=false; sound.classList.remove('on');
+  greeter.classList.remove('ready');
+  playIntro();
+}));
+playIntro();
 sound.addEventListener('click',()=>{
   intro.muted=false; sound.classList.remove('on');
   if(intro.paused&&!intro.ended) intro.play().catch(()=>{});
@@ -930,7 +957,7 @@ async function travel(key,origin){
 /* hand over to the destination page; it eases itself in when it sees the flag.
    replace() keeps the intro out of history, so Back never lands on it again */
 function land(key){
-  try{ sessionStorage.setItem('kz-arrive','1'); localStorage.setItem('kz-intro-seen','1'); }catch(e){}
+  try{ sessionStorage.setItem('kz-arrive','1'); }catch(e){}
   location.replace(ROUTES[key].href);
 }
 

@@ -466,3 +466,12 @@ button,input,select,textarea{font:inherit;color:inherit}
 /* parent quotes */
 .quote-text{margin:0;font:600 clamp(19px,1.6vw,22px)/1.4 var(--display);color:var(--ink);text-wrap:pretty}
 .quote-text.blank{color:var(--faint)}
+
+/* ---------- programme and centre pages ---------- */
+.timeline .t-step{font:600 22px/1.2 var(--display);color:var(--c,var(--ink))}
+.child-card .age small{font-size:.32em;margin-left:.15em;letter-spacing:0}
+.bg-white-glass{background:rgba(255,255,255,.14);color:#fff;border:1px solid rgba(255,255,255,.35);backdrop-filter:blur(6px)}
+.next-prog{text-decoration:none;color:var(--ink);flex-direction:row;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:12px 32px}
+.next-prog .link-arrow{color:var(--pink)}
+.next-prog:hover .link-arrow{text-decoration:underline;text-underline-offset:4px}
+.numcols .link-arrow{margin-top:auto;color:var(--yellow)}
